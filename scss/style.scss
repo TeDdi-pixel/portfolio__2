@@ -1,0 +1,207 @@
+@import "./nullstyle";
+@import "./variable";
+@import "./fonts";
+@import "./mixins";
+
+
+body{
+    overflow-x: hidden;
+    background-color: #ECF3FB;
+}
+
+.header{
+    width: 100%;
+    background-color: white;
+    &__container{
+        margin: 0 120px;
+    }
+    &__wrapper{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    &-logo__wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &-logo__link{
+        
+    }
+    &-link__wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__subscription{
+        position: relative;
+        &_active{
+            color: #333;
+            &:hover{
+                color: var(--blue, #1749B3);
+            }
+        }
+    }
+    &-subscriptions__wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 27px 24px 24px 23px;
+        background-color: white;
+        border-radius: 16px;
+        position: absolute;
+        top: 39px;
+        left: -30px;
+        width: 176px;
+        opacity: 1;
+        z-index: 50;
+        @include transition(0.2s);
+        &_active{
+            z-index: -10;
+            opacity: 0;
+        }
+        
+    }
+    &-subscriptions__link{
+        margin-top: 20px;
+        font-family: $font-family;
+        @include transition(0.2s);
+        cursor: pointer;
+
+        a{
+            font-family: $font-family2;
+            text-decoration: none;
+            color: var(--black-2, #171717);
+            &:hover{
+                color: var(--blue, #1749B3);
+            }
+        }
+        &:first-child{
+            margin-top: 0px;
+
+        }
+    }
+    &__name{
+        font-family: $logo;
+        margin-left: 8px;
+        
+        a{
+            color: #171717;
+            text-decoration: none;
+        }
+        position: relative;
+        &_active{
+            color: #333;
+            &:hover{
+                color: var(--blue, #1749B3);
+            }
+        }
+    }
+    &__arrow{
+        margin-left: 4px;
+        transform: rotate(-180deg);
+        @include transition(0.2s);
+        &_active{
+            transform: rotate(0);
+        }
+    }
+    &__menu{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__link{
+        user-select: none;
+        font-family: $font-family;
+        color: #333;
+        cursor: pointer;
+
+        &:nth-child(2){
+            margin-left: 44px;
+        }
+        &:nth-child(3){
+            margin-left: 46px;
+        }
+        &:nth-child(4){
+            margin-left: 48px;
+        }
+
+        &:not(:first-child):hover {
+            color: var(--blue, #1749B3);
+        }
+    }
+    &__activity{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &-maessenger{
+        cursor: pointer;    
+        &:last-child{
+            margin-left: 12px;
+        }
+    }
+    &__language{
+        margin-left: 40px;
+        font-family: $font-family2;
+        position: relative;
+        user-select: none;
+        cursor: pointer;
+
+    }
+    &-language{
+        
+
+        &-name{
+            position: relative;
+            &_active{
+                color: #333;
+                &:hover{
+                    color: var(--blue, #1749B3);
+                }
+            }
+        }
+
+        &__option{
+            cursor: pointer;
+            margin-top: 20px;
+            color: var(--black-2, #171717);
+            &:hover{
+                    color: var(--blue, #1749B3);
+            }
+            &:first-child{
+                margin-top: 0;
+            }
+        }
+        
+    }
+    &-language__wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 27px 27px 24px 23px;
+        background-color: white;
+        border-radius: 16px;
+        position: absolute;
+        top: 39px;
+        
+        opacity: 1;
+        z-index: 50;
+        @include transition(0.2s);
+        &_active{
+            z-index: -10;
+            opacity: 0;
+        }
+    }
+    &__log-in{
+        color: white;
+        font-size: 17px;
+        font-family: $font-family2;
+        font-weight: 700;
+        margin-left: 40px;
+        padding: 9px 41px;
+        border-radius: 8px;
+        background-color: #1749B3;
+    }
+}
+

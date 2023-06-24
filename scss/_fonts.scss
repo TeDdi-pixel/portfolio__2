@@ -1,1 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700&family=Nunito:wght@400;700&display=swap');
+@font-face {
+    font-family: "Gotham Pro bold";
+    src: url("../fonts/gothampro_bold.ttf");
+    font-weight: bold;
+    font-style: bold;
+  }
+
+@font-face {
+    font-family: 'GothamPro regular';
+    src: url("../fonts/gothampro_black.ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap');

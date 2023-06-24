@@ -5,11 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <header class="header">
+        <div class="header__container">
+            <div class="header__wrapper">
+                <ul class="header-logo__wrapper">
+                    <li class="header-logo__link"><a href="#"><img src="img/003_512.svg" alt="logo"></a></li>
+                    <li class="header__name"><a href="#">DiscountsOnServices</a></li>
+                </ul>
+                <ul class="header__menu">
+                    <li class="header__link">
+                        <ul class="header-link__wrapper">
+                            <li class="header__subscription" id="subs">
+                                Subscriptions
+                                <ul class="header-subscriptions__wrapper header-subscriptions__wrapper_active">
+                                    <li class="header-subscriptions__link"><a href="#">Netflix</a></li>
+                                    <li class="header-subscriptions__link"><a href="#">YouTube Premium</a></li>
+                                    <li class="header-subscriptions__link"><a href="#">Spotify</a></li>
+                                </ul>
+                            </li>
+                            <li class="header__arrow"><img src="img/arrow-down-s-line (2) 2.svg" alt="arrow" ></li>
+                        </ul> 
+                    <li class="header__link">FAQ</li>
+                    <li class="header__link">Support</li>
+                    <li class="header__link">About</li>
+                </ul>
+                <ul class="header__activity">
+                    <li class="header-maessenger"><img src="img/whatsapp-fill 1.svg" alt="whatsapp img"></li>
+                    <li class="header-maessenger"><img src="img/telegram-fill (2) 1.svg" alt="tetelgram img"></li>
+                    <li class="header__language">
+                        <ul class="header-link__wrapper">
+                            <li class="header-language-name" id="lang">
+                                EN
+                                <ul class="header-language__wrapper header-language__wrapper_active">
+                                    <li class="header-language__option">English</li>
+                                    <li class="header-language__option">Ukraine</li>
+                                    <li class="header-language__option">Russian</li>
+                                </ul>
+                            </li>
+                            <li class="header__arrow"><img src="img/arrow-down-s-line (2) 2.svg" alt="arrow"></li>
+                        </ul> 
+                    </li>
+                    <button class="header__log-in">Log in</button>
+                </ul>
+            </div>
+        </div>
+    </header>
 
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>
