@@ -10,7 +10,6 @@
 <body>
     <header class="header">
         <div class="header__container">
-            <div class="header__wrapper">
                 <ul class="header-logo__wrapper">
                     <li class="header-logo__link"><a href="#"><img src="img/003_512.svg" alt="logo"></a></li>
                     <li class="header__name"><a href="#">DiscountsOnServices</a></li>
@@ -18,9 +17,9 @@
                 <ul class="header__menu">
                     <li class="header__link">
                         <ul class="header-link__wrapper">
-                            <li class="header__subscription" id="subs">
+                            <li class="header__subscription dropDownCheck" id="subs">
                                 Subscriptions
-                                <ul class="header-subscriptions__wrapper header-subscriptions__wrapper_active">
+                                <ul class="header__drop-down header__drop-down_active" id="subscription-dropdown">
                                     <li class="header-subscriptions__link"><a href="#">Netflix</a></li>
                                     <li class="header-subscriptions__link"><a href="#">YouTube Premium</a></li>
                                     <li class="header-subscriptions__link"><a href="#">Spotify</a></li>
@@ -37,9 +36,9 @@
                     <li class="header-maessenger"><img src="img/telegram-fill (2) 1.svg" alt="tetelgram img"></li>
                     <li class="header__language">
                         <ul class="header-link__wrapper">
-                            <li class="header-language-name" id="lang">
+                            <li class="header-language-name dropDownCheck" id="lang">
                                 EN
-                                <ul class="header-language__wrapper header-language__wrapper_active">
+                                <ul class="header__drop-down header__drop-down_active" id="language-dropdown">
                                     <li class="header-language__option">English</li>
                                     <li class="header-language__option">Ukraine</li>
                                     <li class="header-language__option">Russian</li>
@@ -50,11 +49,83 @@
                     </li>
                     <button class="header__log-in">Log in</button>
                 </ul>
+                <div class="header__burger-btn" id="burger-btn"><span></span></div>
             </div>
         </div>
     </header>
 
+    <main class="main">
+        <div class="main__container">
+                <div class="main__benefit">
+                    <p class="main-benefit__title">Start enjoying a benefit of up to 50%</p>
+                    <p class="main-benefit__description">
+                        You have always wanted to get the 
+                        same product at a special price for you, without haggling - 
+                        and it is yours.
+                    </p>
+                    <button class="main-benefit__button"><a href="#">Start using</a></button>
+                </div>
+                <div class="main-img__wrapper">
+                    <img src="img/Rectangle 10001.jpg" alt="">
+                </div>
+            </div>
+        </div>
 
+        <div class="main-subs__container">
+            <div class="main__subs">
+                <div class="main-subs__wrapper">
+                    <h1 class="main-subs__title">Choose a subscription</h1>
+                    <div class="main-sub__wrapper">
+                        <div class="main-sub-left__wrapper">
+                            <p class="main-sub__title">Netflix subscription rates</p>
+                            <p class="main-sub__discription">
+                                The constant contributes to the task of the same
+                                and thus the intended features and the set relation 
+                                to the check and set also.
+                            </p>
+                            <button class="main-sub__button"><a href="#">Learn more</a></button>
+                        </div>
+                        
+                        <div class="main-sub-right__wrapper">
+                            <img src="img/Group 1.svg" alt="">
+                        </div>
+                    </div>      
+                    <div class="main-sub__wrapper">
+                        <div class="main-sub-left__wrapper">
+                            <p class="main-sub__title">Netflix subscription rates</p>
+                            <p class="main-sub__discription">
+                                The constant contributes to the task of the same
+                                and thus the intended features and the set relation 
+                                to the check and set also.
+                            </p>
+                            <button class="main-sub__button"><a href="#">Learn more</a></button>
+                        </div>
+                        
+                        <div class="main-sub-right__wrapper">
+                            <img src="img/Rectangle 9998.svg" alt="">
+                        </div>
+                    </div>     
+                    <div class="main-sub__wrapper">
+                        <div class="main-sub-left__wrapper">
+                            <p class="main-sub__title">Netflix subscription rates</p>
+                            <p class="main-sub__discription">
+                                The constant contributes to the task of the same
+                                and thus the intended features and the set relation 
+                                to the check and set also.
+                            </p>
+                            <button class="main-sub__button"><a href="#">Learn more</a></button>
+                        </div>
+                        
+                        <div class="main-sub-right__wrapper">
+                            <img src="img/Group 2.svg" alt="">
+                        </div>
+                    </div>     
+                </div>
+                 
+            </div>
+        </div>
+    </main>
+    
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="js/index.js"></script>
 </body>

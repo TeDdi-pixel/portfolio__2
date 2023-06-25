@@ -1,56 +1,49 @@
 const subs = document.querySelectorAll('.header-link__wrapper');
-const subsBlock = document.querySelector('.header-subscriptions__wrapper');
-const subsLink = document.querySelector('#subs');
-const subLink = document.querySelector('.header-subscriptions__link');
-const arrow = document.querySelectorAll('.header__arrow');
-const langBlock = document.querySelector('.header-language__wrapper');
-let isRotated = false;
+const burgerBtn = document.querySelector('#burger-btn');
+const subscription = document.querySelector('.header__subscription');
+const arrows = document.querySelector('.header__arrow');
+const bodyWidth = document.body.clientWidth;
 
 
-subs[0].addEventListener('click',()=>{
-    subsBlock.classList.toggle('header-subscriptions__wrapper_active');
-    arrow[0].classList.toggle("header__arrow_active");
-    isRotated = false; 
-})
-
-subs[1].addEventListener('click',()=>{
-    langBlock.classList.toggle('header-language__wrapper_active');
-    arrow[1].classList.toggle("header__arrow_active");
-    isRotated = false; 
+if(bodyWidth > 1023){
+    subs.forEach(e => {
+        const dropDownBlock = e.querySelector('.header__drop-down');
+        const arrow = e.querySelector('.header__arrow');
+        const dropDownCheck = e.querySelector('.dropDownCheck');
+        let isRotated = true;
     
-})
-
-
-document.addEventListener('click', function(e) {
-    
-    if (e.target.id != 'lang' && !isRotated) {
-        langBlock.classList.add('header-language__wrapper_active');
-        arrow[1].classList.toggle("header__arrow_active");
-        isRotated = true;
-    }
-  });
-
-
-document.addEventListener('click', function(e) {
-    if (e.target.id != 'subs' && !isRotated) {
-        subsBlock.classList.add('header-subscriptions__wrapper_active');
-        arrow[0].classList.toggle("header__arrow_active");
-        isRotated = true;
-        
-    }
-  });
-
-// if(subsLink.classList.contains('header__subscription_active')){
-//     subsLink.style.color = "#333";
-// }else{
-//     subLink.addEventListener('mouseenter', ()=>{
-//         subLink.style.color = 'var(--blue, #1749B3)';
-//     })
-//     subLink.addEventListener('mouseover', ()=>{
-//         subLink.style.color = 'var(--black-2,#171717)';
-//     })
-// }
+        e.addEventListener('click', () => {
+            dropDownBlock.classList.toggle("header__drop-down_active");
+            arrow.classList.toggle('header__arrow_active');
+            isRotated = !isRotated;
+        })
+        document.addEventListener('click', function (sub) {
+            if (sub.target.id != dropDownCheck.id && !isRotated) {
+                dropDownBlock.classList.add('header__drop-down_active');
+                arrow.classList.toggle("header__arrow_active");
+                isRotated = !isRotated;
+            }
+        });
+    });
+}
 
 
 
+function changeLinks() {
+    const bodyWidth = document.body.clientWidth;
 
+    if (bodyWidth <= 1023) {
+        if (arrows) {
+            const parentElement = arrows.parentNode;
+            parentElement.removeChild(arrows);
+          }
+    } 
+}
+changeLinks();
+
+window.addEventListener('resize', function () {
+    changeLinks();
+});
+
+
+// Проверяем, что блок существует
