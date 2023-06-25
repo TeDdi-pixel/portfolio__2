@@ -3,7 +3,7 @@ const burgerBtn = document.querySelector('#burger-btn');
 const subscription = document.querySelector('.header__subscription');
 const arrows = document.querySelector('.header__arrow');
 const bodyWidth = document.body.clientWidth;
-
+const howItWorksIMG = document.querySelectorAll('.how-it-works__img');
 
 if(bodyWidth > 1023){
     subs.forEach(e => {
@@ -42,7 +42,9 @@ function changeLinks() {
 changeLinks();
 
 window.addEventListener('resize', function () {
+    
     changeLinks();
+    
 });
 
 
