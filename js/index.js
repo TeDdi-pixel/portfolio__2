@@ -15,12 +15,24 @@ const logoWrapper = document.querySelector('.header-logo__wrapper');
 const headerName = document.querySelector('.header__name');
 
     burgerBtn.addEventListener("click",()=>{
-      burgerMenu.classList.toggle('header-burger__wrapper_active');
+      setTimeout(() => {
+        burgerMenu.classList.toggle('header-burger__wrapper_active');
+      }, 100);
+      setTimeout(() => {
+        burgerMenuSubs.classList.toggle('header-burger__subs_active');
+      }, 200);
+      setTimeout(() => {
+        burgerBtns.classList.toggle('header-burger__btns_active');
+      }, 250);
+      setTimeout(() => {
+        burgerMessengers.classList.toggle('header-burger__messenger_active');
+      }, 300);
+
       main.classList.toggle('main_active');
       footer.classList.toggle('footer_active');
-      burgerMenuSubs.classList.toggle('header-burger__subs_active');
-      burgerBtns.classList.toggle('header-burger__btns_active');
-      burgerMessengers.classList.toggle('header-burger__messenger_active');
+      
+      
+      
       header.classList.toggle('header_active');
       logoWrapper.classList.toggle('header-logo__wrapper_active');
       headerName.classList.toggle('header__name_active');
