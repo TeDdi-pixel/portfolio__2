@@ -17,6 +17,7 @@ body{
 }
 
 .header{
+
     width: 100%;
     background-color: white;
     display: flex;
@@ -24,6 +25,7 @@ body{
     //padding: 11px 0;
     &__container{
         display: flex;
+
         justify-content: space-between;
         max-width: 1440px;
         width: 100%;
@@ -38,6 +40,7 @@ body{
         display: flex;
         align-items: center;
         justify-content: space-between;
+        // align-items: flex-start;
     }
     &-logo__link{
         
@@ -126,8 +129,8 @@ body{
         }
     }
     &__name{
-        font-family: $logo;
         margin-left: 8px;
+        font-family: $logo;
         
         a{
             color: #171717;
@@ -287,6 +290,9 @@ body{
         display: none;
 
     }
+    &-burger__wrapper{
+        display: none;
+    }
 
 
     @media screen and (max-width:1234px) {
@@ -299,20 +305,39 @@ body{
         }
     }
     @media screen and (max-width:1023px) {
+        &_active{
+            z-index: 1;
+            height: 100vh;
+            background: var(--background, #ECF3FB);
+        }
         position: fixed;
         top: 0;
         left: 0;
         padding: 11px 0; 
         &__container{
             padding: 0 50px;
+            position: relative;
         }
         &__wrapper{
-           
-           position: relative;
+            
+           //position: relative;
+        }
+        &-logo__wrapper{
+            &_active{
+                align-items: flex-start;
+
+            }
         }
         &-logo__link{
             img{
                 width: 32px;
+            }
+        }
+        &__name{
+            
+
+            &_active{
+                margin-top: 9px;
             }
         }
         &__menu{
@@ -322,77 +347,244 @@ body{
             display: none;
 
         }
-        // &__menu{
-        //     background-color: white;
-        //     padding: 35px;
-        //     align-items: center;
-        //     font-size: 25px;
-        //     opacity: 1;
-        //     text-align: center;
-        //     top: 70px;
-        //     position: absolute;
-        //     flex-direction: column;
-        //     justify-content: center;
-        //     max-width: 900px;
-        //     border-radius: 12px;
-        //     box-shadow: 0px 12px 28px 0px rgba(177, 177, 177, 0.20);
-        //     width: 100%;
-        //     left: 50%;
-        //     max-height: 216px;
-        //     transform: translate(-50%);
-        // }
-        // &__subscription{
-        //     position: relative;
-        // }
-        // &__drop-down{
-        //     background-color: white;
-        //     padding: 35px;
-        //     align-items: center;
-        //     font-size: 30px;
-        //     opacity: 1;
-        //     text-align: center;
-            
-            
-        //     position: absolute;
-        //     flex-direction: column;
-        //     justify-content: center;
-            
-        //     border-radius: 12px;
-        //     box-shadow: 0px 12px 28px 0px rgba(177, 177, 177, 0.20);
-           
-            
-        // }
-        // #subscription-dropdown{
-        //     max-width: 900px;
-        //     left: 50%;
-        //     transform: translate(-50%); 
-        //     top: 200px;
-        //     width: 100%;
-        // }
-        // #language-dropdown{
-        //     width: 114px;
-        //     left: 0;
-        // }
 
-        // &__activity{
-        //     display: none;
-        //     align-items: center;
-        //     opacity: 1;
-        //     text-align: center;
-        //     top: 70px;
-        //     position: absolute;
-        //     flex-direction: column;
-        //     justify-content: center;
-        //     max-width: 150px;
-        //     left: 50%;
-        //     transform: translate(-50%);
-        // }
-        // &__link{
-        //     margin-top: 20px;
-        //     &:first-child{
-        //         margin-top: 0;
-        //     }
-        // }
+        &-burger__wrapper{
+            
+            display: block;
+            max-width: 1440px;
+            width: 65%;
+            margin: 0 auto;
+            background-color: white;
+            position: absolute;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0px 12px 28px 0px rgba(177, 177, 177, 0.20);
+            left: 50%;
+            transform: translate(-50%);
+            padding: 16px;
+            opacity: 0;
+            z-index: -10;
+            top: -300px;
+            @include transition(0.3s);
+            &_active{
+                z-index: 50;
+                opacity: 1;
+                top: 78px;
+            }
+        }
+        &-burger__item{
+            padding: 12px 0 14px 20px;
+            border-radius: 8px;
+            @include transition(0.3s);
+            img{
+                margin-right: 12px;
+            }
+            a{
+                user-select: none;
+                color: #070033;
+                font-size: 17px;
+                font-family: $font-family;
+                line-height: 150%;
+                letter-spacing: 0.17px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                
+            } 
+            &:hover{
+                background: var(--unnamed, #F7F7F7);
+            }
+            
+        }
+
+        &-burger__subs{
+            display: block;
+            max-width: 1440px;
+            width: 65%;
+            margin: 0 auto;
+            background-color: white;
+            position: absolute;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0px 12px 28px 0px rgba(177, 177, 177, 0.20);
+            left: 50%;
+            transform: translate(-50%);
+            padding: 16px;
+            
+            opacity: 0;
+            z-index: -10;
+            top: -500px;
+            @include transition(0.3s);
+            width: 100%;
+            &_active{
+                z-index: 50;
+                opacity: 1;
+                top: 254px;
+            }
+        }
+        &-menu__subs{
+            
+            @include transition(0.3s);
+
+            a{
+            padding: 12px 22px;
+
+                user-select: none;
+                color: #070033;
+                font-size: 17px;
+                font-family: $font-family;
+                line-height: 150%;
+                letter-spacing: 0.17px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                
+            } 
+        }
+        &-sub__item{
+            width: 100%;
+            border-radius: 8px;
+            &:hover{
+                background: var(--unnamed, #F7F7F7);
+            }
+        }
+        
+
+        &-burger__btns{
+            display: block;
+            max-width: 1440px;
+            width: 65%;
+            margin: 0 auto;
+            background-color: white;
+            position: absolute;
+            text-align: center;
+            border-radius: 12px;
+            left: 50%;
+            transform: translate(-50%);
+            opacity: 0;
+            z-index: -10;
+            top: -700px;
+    
+            @include transition(0.3s);
+            width: 100%;
+            &_active{
+                z-index: 50;
+                opacity: 1;
+                top: 457px;
+            }
+        }
+
+        &-buttons__wrapper{
+            
+            border-radius: 8px;
+            @include transition(0.3s);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            a{
+                user-select: none;
+                color: #070033;
+                font-size: 17px;
+                font-family: $font-family;
+                line-height: 150%;
+                letter-spacing: 0.17px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                
+            } 
+        }
+        &-buttons__item{
+            padding: 12px 40px;
+            box-shadow: 0px 12px 28px 0px rgba(177, 177, 177, 0.20);
+            background-color: white;
+            display: flex;
+            width: 100%;
+            justify-content: center; 
+            
+            border-radius: 12px;
+            border: 2px solid white;
+            @include transition(0.3s);
+            cursor: pointer;
+            a{
+                color: var(--blue, #1749B3);
+                font-size: 15px;
+                font-family: $font-family2;
+                font-weight: 700;
+                line-height: 130%;
+                letter-spacing: 0.15px;
+            }
+            &:hover{
+                background-color: #1749B3;
+                a{
+                    color: white;
+                }
+            }
+            &:last-child{
+                a{
+                    color: white;
+                }
+                background-color: #1749B3;
+                margin-top: 8px;
+                border: 2px solid #1749B3;
+                &:hover{
+                    background-color: white;
+                    a{
+                        color: #1749B3;
+                    }
+                }
+            }
+        }
+        &-burger__messenger{
+            display: block;
+            max-width: 1440px;
+            width: 65%;
+            margin: 0 auto;
+            position: absolute;
+            text-align: center;
+            border-radius: 12px;
+            left: 50%;
+            transform: translate(-50%);
+            opacity: 0;
+            z-index: -10;
+            top: -900px;
+    
+            @include transition(0.3s);
+            width: 100%;
+            &_active{
+                z-index: 50;
+                opacity: 1;
+                top: 657px;
+            }
+        }
+        &-messenger__wrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .messengers{
+            align-items: center;
+            display: flex;
+        }
+        &-messenger__item{
+            margin-left: 16px;
+            &:last-child{
+                
+                a{
+                    display: flex;
+                    align-items: center;
+                    color: var(--black-1, #333);
+                    font-size: 17px;
+                    font-family: $font-family2;
+                    line-height: 150%;
+                    img{
+                        margin-left: 3px;
+                    }
+                }
+            }
+        }
+
         &__burger-btn{
             display: flex;
             align-items: center;
@@ -400,29 +592,59 @@ body{
             width: 24px;
             height: 24px;
             top: 5.5px;
-            
             &::before,&::after{
                 content: '';
                 background-color: #070033;
                 position: absolute;
                 width: 100%;
-                height: 2.5px;
+                height: 2px;
                 left: 0;
+            @include transition(0.3s);
+
             }
             &::before{
+            @include transition(0.3s);
+
                 top: 2px;
+                transform-origin: center;
             }
             &::after{
+            @include transition(0.3s);
+
                 bottom: 2px;
+                transform-origin: center;
             }
             span{
                 background-color: #070033;
                 position: absolute;
                 width: 100%;
-                height: 2.5px;
+                height: 2px;
                 top: 11px;
+                transform-origin: center;
             }
-        }
+            &_active{
+                span{
+                    background-color: #fff;
+                }
+                border-radius: 50%;
+                background-color: #1749B3;
+            }
+              &_active::before {
+                background-color: #fff;
+                width: 60%;
+                transform:  translateX(5px) translateY(9px) rotate(45deg);
+              }
+              
+              &_active::after {
+                background-color: #fff;
+                width: 60%;
+                transform: translateX(5px) translateY(-9px) rotate(-45deg);
+              }
+              
+              &_active span {
+                transform: scale(0);
+              }
+            }
     }
     @media screen and (max-width:767px) {
         &__container{
@@ -434,6 +656,14 @@ body{
         &__activity{
             display: none;
 
+        }
+        &-burger__wrapper{
+            width: 88%;
+            
+        }
+        &-menu__subs{
+            //width: 88%;
+            
         }
     }
 
@@ -450,6 +680,9 @@ body{
 //MAIN
 
 .main{
+    transition: filter 0.3s ease;
+    z-index: -11; 
+
     margin: 60px 0 0 0;
     width: 100%;
     display: flex;
@@ -1479,6 +1712,8 @@ body{
 
 
 .footer{
+    transition: filter 0.3s ease;
+
     padding-top: 40px;
     background: var(--blue, #1749B3);
     width: 100%;

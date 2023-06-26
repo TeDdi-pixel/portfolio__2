@@ -4,6 +4,53 @@ const subscription = document.querySelector('.header__subscription');
 const arrows = document.querySelector('.header__arrow');
 const bodyWidth = document.body.clientWidth;
 const howItWorksIMG = document.querySelectorAll('.how-it-works__img');
+const burgerMenu = document.querySelector('.header-burger__wrapper');
+const main = document.querySelector('.main');
+const footer = document.querySelector('.footer');
+const burgerMenuSubs = document.querySelector('.header-burger__subs')
+const burgerBtns = document.querySelector('.header-burger__btns');
+const burgerMessengers = document.querySelector('.header-burger__messenger');
+const header = document.querySelector('.header');
+const logoWrapper = document.querySelector('.header-logo__wrapper');
+const headerName = document.querySelector('.header__name');
+
+    burgerBtn.addEventListener("click",()=>{
+      burgerMenu.classList.toggle('header-burger__wrapper_active');
+      main.classList.toggle('main_active');
+      footer.classList.toggle('footer_active');
+      burgerMenuSubs.classList.toggle('header-burger__subs_active');
+      burgerBtns.classList.toggle('header-burger__btns_active');
+      burgerMessengers.classList.toggle('header-burger__messenger_active');
+      header.classList.toggle('header_active');
+      logoWrapper.classList.toggle('header-logo__wrapper_active');
+      headerName.classList.toggle('header__name_active');
+      burgerBtn.classList.toggle('header__burger-btn_active');
+      if (burgerBtn.classList.contains('header__burger-btn_active')) {
+        disableScroll();
+      } else {
+        enableScroll();
+      }
+    })
+
+    function disableScroll() {
+      // Сохраняем текущую позицию прокрутки
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      // Добавляем стили для блокировки скролла
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollPosition}px`;
+    }
+
+    function enableScroll() {
+      // Получаем сохраненную позицию прокрутки
+      const scrollPosition = parseInt(document.body.style.top, 10) || 0;
+      // Удаляем стили блокировки скролла
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      // Восстанавливаем прокрутку к сохраненной позиции
+      window.scrollTo(0, -scrollPosition);
+    }
 
 if(bodyWidth > 1023){
     subs.forEach(e => {
@@ -25,6 +72,7 @@ if(bodyWidth > 1023){
             }
         });
     });
+    
 }
 
 
@@ -47,24 +95,6 @@ window.addEventListener('resize', function () {
     
 });
 
-
-// Проверяем, что блок существует
-// const FAQItems = document.querySelectorAll('.FAQ__item');
-
-// FAQItems.forEach(item => {
-//   const questionWrapper = item.querySelector('.FAQ-question__wrapper');
-//   const answer = item.querySelector('.FAQ__answer');
-//   const arrow = item.querySelector('.FAQ__arrow');
-//   let isExpanded = false;
-//     console.log(questionWrapper);
-//     arrow.addEventListener('click', () => {
-//     isExpanded = !isExpanded;
-//     answer.style.maxHeight = isExpanded ? `${answer.scrollHeight}px` : '0';
-//     answer.style.opacity = isExpanded ? 1 : 0;
-//     answer.style.height = isExpanded ? 'auto' : '0';
-//     arrow.classList.toggle('arrow-rotate');
-//   });
-// });
 
 const FAQItems = document.querySelectorAll('.FAQ__item');
 let currentExpandedItem = null;
