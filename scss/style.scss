@@ -12,13 +12,16 @@ body{
     align-items: center;
     justify-content: space-between;
 }   
+.button{
+    user-select: none;
+}
 
 .header{
     width: 100%;
     background-color: white;
     display: flex;
     justify-content: center;
-    padding: 11px 0;
+    //padding: 11px 0;
     &__container{
         display: flex;
         justify-content: space-between;
@@ -55,9 +58,33 @@ body{
         top: 39px;
         opacity: 1;
         z-index: 50;
+        @include transition(0.3s);
+
+        li{
+            a {
+                color: #333;
+                position: relative;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -2px; /* Расположение линии (можете настроить по вашему вкусу) */
+                    left: 0;
+                    width: 100%;
+                    height: 2px; /* Толщина линии */
+                    background-color: #1749B3;
+                    transform: scaleX(0); /* Начальное состояние - линия невидима */
+                    transition: transform 0.3s ease-in-out; /* Плавный переход */
+                }
+                &:hover::after {
+                transform: scaleX(1); /* Линия становится видимой при наведении */
+                }
+                &:hover{
+                    color: #1749B3;
+                }
+            }
+        }
         
-        @include transition(0.2s);
-        &_active{
+        &_active{  
             z-index: -10;
             opacity: 0;
         }
@@ -65,6 +92,7 @@ body{
     #subscription-dropdown{
         width: 179px;
         left: -33px;
+        
     }
     #language-dropdown{
         width: 114px;
@@ -131,22 +159,34 @@ body{
     &__link{
         user-select: none;
         font-family: $font-family;
-        color: #333;
+        @include transition(0.3s);
+        
         cursor: pointer;
+        a {
+            color: #333;
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px; /* Расположение линии (можете настроить по вашему вкусу) */
+                left: 0;
+                width: 100%;
+                height: 1px; /* Толщина линии */
+                background-color: #1749B3;
+                transform: scaleX(0); /* Начальное состояние - линия невидима */
+                transition: transform 0.3s ease-in-out; /* Плавный переход */
+            }
+            &:hover::after {
+            transform: scaleX(1); /* Линия становится видимой при наведении */
+            }
+            &:hover{
+                color: #1749B3;
+            }
+        }
 
-        // &:nth-child(2){
-        //     margin-left: 44px;
-        // }
-        // &:nth-child(3){
-        //     margin-left: 46px;
-        // }
-        // &:nth-child(4){
-        //     margin-left: 48px;
-        // }
-
-        // &:not(:first-child):hover {
-        //     color: var(--blue, #1749B3);
-        // }
+        &:not(:first-child):hover {
+            color: var(--blue, #1749B3);
+        }
     }
     &__activity{
         display: flex;
@@ -155,12 +195,17 @@ body{
     }
     &-maessenger{
         cursor: pointer; 
-       
-        img{
-            &:hover{
-                fill: var(--blue, #1749B3);            
+        a{
+            
+            img{
+                @include transition(0.3s);
             }
-        }   
+            img:hover{
+                scale: 0.9;
+                    fill: var(--blue, #1749B3);            
+            } 
+
+        }
         &:last-child{
             margin-left: 12px;
         }
@@ -177,11 +222,13 @@ body{
         
 
         &-name{
+            
             position: relative;
             &_active{
                 color: #333;
                 &:hover{
                     color: var(--blue, #1749B3);
+                    
                 }
             }
         }
@@ -211,7 +258,8 @@ body{
         
         opacity: 1;
         z-index: 50;
-        @include transition(0.2s);
+        @include transition(0.3s);
+        
         &_active{
             z-index: -10;
             opacity: 0;
@@ -226,6 +274,13 @@ body{
         padding: 9px 41px;
         border-radius: 8px;
         background-color: #1749B3;
+        @include transition(0.3s);
+        border: 2px solid #1749B3;
+        &:hover{
+            scale: 0.9;
+            color: #1749B3;
+            background-color: #00000000;
+        }
     }
 
     &__burger-btn{
@@ -247,11 +302,12 @@ body{
         position: fixed;
         top: 0;
         left: 0;
+        padding: 11px 0; 
         &__container{
             padding: 0 50px;
         }
         &__wrapper{
-           padding: 11px 0; 
+           
            position: relative;
         }
         &-logo__link{
@@ -444,12 +500,22 @@ body{
         padding: 16px 24px;
         background-color: white;
         border-radius: 16px;
+        border: 2px solid #1749B3;
+        @include transition(0.3s);
+        &:hover{
+            border-color: white;
+            scale: 0.9;
+            background-color: #00000000;
+            a{
+                color: white;
+            }
+        }
         a{
-            color: #070033;
             font-size: 17px;
             font-family: $font-family2;
             font-weight: 700;
-            
+            color: #070033;
+
         }
     }
     &-img__wrapper{
@@ -525,7 +591,16 @@ body{
         border-radius: 12px;
         background: var(--blue, #1749B3);
         padding: 16px 24px;
-        
+        @include transition(0.3s);
+        border: 2px solid #1749B3;
+        &:hover{
+            a{
+                color: #1749B3;
+            }
+            scale: 0.9;
+            
+            background-color: #00000000;
+        }
         a{
             color: var(--white, #FFF);
             font-size: 15px;
@@ -771,6 +846,7 @@ body{
             width: 100%;
         }
         &__step{
+            z-index: -1;
             position: relative;
             max-width: 388px;
             width: 100%;
@@ -865,12 +941,21 @@ body{
                 margin-top: 10px;
                 max-width: 100%;
                 a{
-                    color: #1749B3;
-                    text-decoration-line: underline;
+                    color: #171717;
                     text-transform: uppercase;
+                }
+                &:hover{
+                    text-decoration-line: underline;
+                    color: #1749B3;
+                    a{
+                        color: #1749B3;
+                    }
                 }
                 img{
                     margin-left: 8px;
+                    &:hover{
+                        cursor: pointer;
+                    }
                 }
             }
         }
@@ -1175,8 +1260,10 @@ body{
             width: 100%;
             border-radius: 32px;
             background: white;
-
             box-shadow: 0px 12px 28px 0px rgba(244, 245, 245, 0.20), 0px 4px 24px 0px rgba(213, 216, 221, 0.20);
+            &:hover{
+                cursor: pointer ;
+            }
         }
         &-question__wrapper{
             display: flex;
@@ -1238,6 +1325,16 @@ body{
             a{
                 color: white;
                 text-decoration: none;
+            }
+            @include transition(0.3s);
+            border: 2px solid #333;
+            &:hover{
+                a{
+                    color: #333;
+                }
+                scale: 0.9;
+                
+                background-color: #00000000;
             }
         }
 
@@ -1324,6 +1421,18 @@ body{
                 line-height: 130%;
                 color: var(--black-2, #171717);
             }
+            @include transition(0.3s);
+            border: 2px solid white;
+            &:hover{
+                a{
+                    color: white;
+                }
+                border-color: white;
+                scale: 0.9;
+                
+                background-color: #00000000;
+            }
+            
         }
         @media screen and (max-width:1234px) {
             &__wrapper{
@@ -1429,6 +1538,23 @@ body{
         margin-top: 12px;
 
         a{
+            color: #333;
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px; /* Расположение линии (можете настроить по вашему вкусу) */
+                left: 0;
+                width: 100%;
+                height: 1px; /* Толщина линии */
+                background-color: white;
+                transform: scaleX(0); /* Начальное состояние - линия невидима */
+                transition: transform 0.3s ease-in-out; /* Плавный переход */
+            }
+            &:hover::after {
+            transform: scaleX(1); /* Линия становится видимой при наведении */
+            }
+
             color: white;
             font-size: 16px;
             font-family: $font-family;
@@ -1436,10 +1562,10 @@ body{
         }
         &:nth-child(1){
             margin-top: 0px;
-
-            a{
-                font-family: $font-family2;
-            }
+            font-family: $font-family2;
+            color: white;
+            font-size: 18px;
+            line-height: 150%;
         }
         &:nth-child(2){
             margin-top: 20px;
@@ -1473,6 +1599,7 @@ body{
         color: white;
         font-family: $font-family2;
         line-height: 150%;
+        margin-top: 17px;
         &:last-child{
             display: flex;
             align-items: center;
@@ -1487,6 +1614,17 @@ body{
         &:last-child{
             margin-left: 16px;
         }
+        a{
+            user-select: none;
+            img{
+                @include transition(0.3s);
+            }
+            img:hover{
+                scale: 0.9;
+                background-color: #00000000;
+            } 
+
+        }
     }
     
 
@@ -1496,10 +1634,10 @@ body{
             
         }
     }
-    @media screen and (max-width:1023px) {
+
+    @media screen and (max-width:767px) {
         &__wrapper{
-            margin: 0 32px;
-            
+            margin: 0 32px;   
         }
     }
     @media screen and (max-width:749px) {
