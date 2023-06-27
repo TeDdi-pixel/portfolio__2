@@ -43,6 +43,7 @@ const headerName = document.querySelector('.header__name');
         enableScroll();
       }
     })
+    
 
     function disableScroll() {
       // Сохраняем текущую позицию прокрутки
